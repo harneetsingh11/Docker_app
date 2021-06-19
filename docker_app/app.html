@@ -1,0 +1,66 @@
+<script>
+function run(){
+var command = document.getElementById("com").value 
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "http://13.232.196.219/cgi-bin/cmd.py?command="+ command , true)
+xhr.send()
+xhr.onload = function (){
+var out=xhr.responseText;
+document.getElementById("out").innerHTML=out; 
+} 
+}
+</script>
+<html>
+<head>
+<style>
+body {
+  background-image: url('https://stackify.com/wp-content/uploads/2019/05/Feature-Image-Blog-Post-Docker-Container-vs-Image-1280x720.jpg');
+    background-repeat: no-repeat;
+      background-attachment: fixed;  
+        background-size: cover;
+}
+.header {
+  padding: 5px;
+    text-align: center;
+      background: red;
+        color: white;
+  font-size: 15px;
+}
+.myDiv {
+   background-color: black;    
+    text-align: center;
+     font-size: 25px;
+      color: red;
+         border: 5px outset red;
+}
+.op {
+ text-align: center;
+  font-size: 25px;
+   color: black;
+}
+</style>
+ </head>
+ <body>
+ <div class="header">
+   <h1>Docker App</h1>
+ </div>
+ </br>
+ </br>
+ <div style="text-align:center;">
+ [root@-------- $] <input id='com' type='text'>
+ </div>
+ </br>
+ </br>
+ <div style="text-align:center;">
+ <button onclick="run()"> RUN </button>
+ </div>
+                 <div class='op'>
+ <h1>Output</h1>
+ </div>
+ <pre>
+ <div class="myDiv" id='out'>
+ </div>
+ </pre>
+
+ </body>
+ </html>
